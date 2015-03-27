@@ -57,8 +57,10 @@ class ViewController: UIViewController {
         let z: Double = (Double(rangeSlider.upperValue + 2.5) / 5) * 5
         let x: Double = (Double(rangeSlider.lowerValue + 5))
         
-        lowerThumbValueLabel.text = "$" + NSString(format: "%.2f", x)
-        upperThumbValueLabel.text = "$" + NSString(format: "%.2f", z)
+        var intZ: Int = Int(z)
+        
+        lowerThumbValueLabel.text = "$" + NSString(format: "%.2f", Float(x))
+        upperThumbValueLabel.text = "$" + NSString(format: "%.2f", Float(z))
         
     }
     
