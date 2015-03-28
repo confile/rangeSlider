@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         
         rangeSlider.addTarget(self, action: "rangeSliderValueChanged:", forControlEvents: .ValueChanged)
         
+        rangeSlider.setRangeSliderIncrementValue(14)
+        
         rangeSlider.setRangeSliderValue(1200, maximumValue: 2400)
         
         rangeSlider.setRangeSliderStartValue(rangeSlider.minimumValue, upperValue: rangeSlider.maximumValue)
@@ -57,10 +59,11 @@ class ViewController: UIViewController {
         let z: Double = (Double(rangeSlider.upperValue + 2.5) / 5) * 5
         let x: Double = (Double(rangeSlider.lowerValue + 5))
         
-        var intZ: Int = Int(z)
-        
-        lowerThumbValueLabel.text = "$" + NSString(format: "%.2f", Float(x))
-        upperThumbValueLabel.text = "$" + NSString(format: "%.2f", Float(z))
+        var intZ: Int = (Int(z)/rangeSlider.increment)*rangeSlider.increment + (1/2)
+        var intX: Int = (Int(x)/rangeSlider.increment)*rangeSlider.increment + (1/2)
+       
+        lowerThumbValueLabel.text = "$" + "\(intX)" + ".00"
+        upperThumbValueLabel.text = "$" + "\(intZ)" + ".00"
         
     }
     

@@ -13,6 +13,8 @@ class RangeSlider: UIControl {
     
     var previousLocation = CGPoint()
     
+    var increment: Int = 70
+
     var minimumValue: Double = 300 {
         didSet {
             updateLayerFrames()
@@ -98,6 +100,12 @@ class RangeSlider: UIControl {
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
+        
+    }
+    
+    func setRangeSliderIncrementValue(increment: Int) {
+        
+        self.increment = increment
         
     }
     
